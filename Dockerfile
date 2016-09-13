@@ -25,5 +25,7 @@ WORKDIR /home/jenkins
 USER jenkins
 
 RUN echo $PATH
+RUN java -version
+
 
 ENTRYPOINT ["jenkins-slave"]>
