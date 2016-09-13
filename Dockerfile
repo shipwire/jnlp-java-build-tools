@@ -1,4 +1,4 @@
-FROM airdock/oracle-jdk
+FROM airdock/oracle-jdk:jdk-8u74
 
 MAINTAINER Nick Maiorsky <nick.maiorsky@shipwire.com
 
