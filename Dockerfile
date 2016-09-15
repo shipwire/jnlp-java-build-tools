@@ -29,8 +29,8 @@ COPY jenkins-slave /usr/local/bin/jenkins-slave
 
 RUN chmod 755 /usr/local/bin/jenkins-slave
 
-VOLUME /home/jenkins
-WORKDIR /home/jenkins
+VOLUME /home/jenkins_slave
+WORKDIR /home/jenkins_slave
 USER jenkins
 
 RUN echo $PATH
