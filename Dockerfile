@@ -13,7 +13,7 @@ ENV JAVA_HOME /usr/java/latest
 #
 # Maven
 #
-USER root
+
 
 ENV MAVEN_VERSION=3.3.9
 ENV MAVEN_HOME=/opt/mvn
@@ -22,6 +22,8 @@ ENV MAVEN_HOME=/opt/mvn
 WORKDIR /tmp
 
 # Download and extract maven to opt folder
+
+USER root
 RUN wget --no-check-certificate --no-cookies http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
     && wget --no-check-certificate --no-cookies http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz.md5 \
     && echo "$(cat apache-maven-${MAVEN_VERSION}-bin.tar.gz.md5) apache-maven-${MAVEN_VERSION}-bin.tar.gz" | md5sum -c \
@@ -59,3 +61,11 @@ USER jenkins
 RUN echo $PATH
 
 ENTRYPOINT ["jenkins-slave"]
+
+#
+# Purge
+#
+USER root
+
+RUN rm -rf /sbin/sln \
+    ; rm -rf /var/cache/{ldconfig,yum}/*
