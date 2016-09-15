@@ -13,6 +13,7 @@ ENV JAVA_HOME /usr/java/latest
 #
 # Maven
 #
+USER root
 
 ENV MAVEN_VERSION=3.3.9
 ENV MAVEN_HOME=/opt/mvn
